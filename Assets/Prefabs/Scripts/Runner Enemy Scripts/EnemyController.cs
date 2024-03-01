@@ -110,19 +110,19 @@ public class EnemyController : MonoBehaviour
         isDead = true;
         CopyTransformData(gameObject.transform, deadEnemy.transform, enemyRb.velocity);
         deadEnemy.SetActive(true);
-        bulletForce = (Random.Range(200, 600));
-        deadEnemy.GetComponentInChildren<Rigidbody>().AddForceAtPosition(Vector3.right * bulletForce, hitPoint.transform.position, ForceMode.Impulse);
-        Destroy(deadEnemy, deadEnemyController.despawnTimer);
         if (headDamage.headShot == true)
         {
             deadEnemyController.HeadShot();
         }
+        bulletForce = (Random.Range(200, 600));
+        deadEnemy.GetComponentInChildren<Rigidbody>().AddForceAtPosition(Vector3.right * bulletForce, hitPoint.transform.position, ForceMode.Impulse);
+        Destroy(deadEnemy, deadEnemyController.despawnTimer);
         gameObject.SetActive(false);
 
     }
 
     private void CopyTransformData(Transform sourceTransform, Transform destinationTransform, Vector3 bodyVelocity)
-    //void that allows deadPlayer prefab to mimic player prefab's current state on death (for consistent ragdoll)
+    //void that allows deadPlayer prefab to assume player prefab's transform on death (for consistent ragdoll)
     {
         if (sourceTransform.childCount != destinationTransform.childCount)
         {

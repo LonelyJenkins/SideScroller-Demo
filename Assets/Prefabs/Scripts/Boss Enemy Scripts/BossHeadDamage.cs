@@ -18,18 +18,11 @@ public class BossHeadDamage : MonoBehaviour
         headCollider = gameObject.GetComponent<Collider>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Bullet"))
+        if (other.gameObject.CompareTag("Bullet") && !bossController.isDead)
         {
             headShot = true;
-            Destroy(other.gameObject);
             bossController.Death();
         }
 

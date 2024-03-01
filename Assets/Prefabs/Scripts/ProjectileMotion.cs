@@ -41,6 +41,11 @@ public class ProjectileMotion : MonoBehaviour
             Destroy(gameObject);
         }
 
+        else
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     IEnumerator BulletDespawnCountdown()

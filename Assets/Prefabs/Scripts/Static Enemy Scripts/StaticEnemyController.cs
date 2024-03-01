@@ -123,13 +123,13 @@ public class StaticEnemyController : MonoBehaviour
         isDead = true;
         CopyTransformData(gameObject.transform, deadSoldier.transform, enemyRb.velocity);
         deadSoldier.SetActive(true);
-        bulletForce = (Random.Range(200, 600));
-        deadSoldier.GetComponentInChildren<Rigidbody>().AddForceAtPosition(Vector3.right * bulletForce, hitPoint.transform.position, ForceMode.Impulse);
-        Destroy(deadSoldier, deadSoldierController.despawnTimer);
         if (headDamage.headShot == true)
         {
             deadSoldierController.HeadShot();
         }
+        bulletForce = (Random.Range(200, 600));
+        deadSoldier.GetComponentInChildren<Rigidbody>().AddForceAtPosition(Vector3.right * bulletForce, hitPoint.transform.position, ForceMode.Impulse);
+        Destroy(deadSoldier, deadSoldierController.despawnTimer);
         gameObject.SetActive(false);
     }
 

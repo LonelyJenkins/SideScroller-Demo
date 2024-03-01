@@ -25,6 +25,6 @@ public class DeadBoss : MonoBehaviour
     {
         headPop.Play();
         bloodFountain.Play();
-        Destroy(head);
+        head.SetActive(false);
     }
 }
